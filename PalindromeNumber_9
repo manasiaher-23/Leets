@@ -1,0 +1,28 @@
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+          int rev=0;
+        boolean res=false;
+        int ori=x;
+        if(x>0){
+        while(x!=0){
+        int r=x%10;
+        rev=rev*10+r;
+        x=x/10;}}
+
+        if(rev!=ori){
+        res= false;
+        }else{
+       res= true; 
+    }
+    return res;}
+    public static void main(String[] args){
+        Scanner o=new Scanner(System.in);
+        int n=o.nextInt();
+       
+        Solution s=new Solution();
+         System.out.println( s.isPalindrome(n));
+
+    }
+}
