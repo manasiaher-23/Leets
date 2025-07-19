@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                 sum=nums[i]+nums[j];
+                if(sum==target){
+                   return new int[]{i,j};
+                }
+            }
+        }return new int[]{-1,-1};
+        
+    }
+    public static void main(String[] args){
+    Scanner o=new Scanner(System.in);
+    int n=o.nextInt();
+    int[]arr=new int[n];
+    for(int i=0;i<n;i++){
+        arr[i]=o.nextInt();
+    }int t=o.nextInt();
+    Solution s=new Solution();
+   
+    int [] re=s.twoSum(arr, t);
+    System.out.print(re);
+    o.close();
+    }
+}
