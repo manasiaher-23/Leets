@@ -1,0 +1,62 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SolutionMed {
+    static void fun(int[] c, int[] d) {
+
+        int[] sum = new int[c.length + d.length];
+        System.out.println("sumlen" + sum.length);
+        for (int i = 0; i < c.length; i++) {
+            sum[i] = c[i];
+        }
+        for (int i = 0; i < d.length; i++) {
+            sum[i + c.length] = d[i];
+        }
+        Arrays.sort(sum);
+        System.out.println(Arrays.toString(sum));
+        // medians
+        int mid = sum.length / 2;
+        float avg = 0;
+        if (sum.length % 2 != 0) {
+            System.out.println(sum[mid]);
+        } else {
+            // mid = sum.length / 2;
+            if (mid >= 0) {
+                avg = (float) (sum[mid] + sum[mid - 1]) / 2;
+            } /*
+               * else {
+               * avg = (float) (sum[mid] + sum[mid + 1]) / 2;
+               * }
+               */
+            System.out.println(avg);
+
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner o = new Scanner(System.in);
+        System.out.println("m");
+        int m = o.nextInt();
+
+        int[] a = new int[m];
+        System.out.println("a");
+        for (int i = 0; i < m; i++) {
+            a[i] = o.nextInt();
+        }
+        Arrays.sort(a);
+
+        System.out.println(Arrays.toString(a));
+        System.out.println("n");
+        int n = o.nextInt();
+        int[] b = new int[n];
+        System.out.println("b");
+        for (int i = 0; i < n; i++) {
+            b[i] = o.nextInt();
+        }
+        Arrays.sort(b);
+        fun(a, b);
+        // int[] sum = new int[m + n];
+        // System.out.println(sum.length);
+        o.close();
+    }
+}
