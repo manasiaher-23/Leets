@@ -1,0 +1,38 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        int n=s.length();
+       
+        String longest="";
+        boolean[][]dp=new boolean[n][n];
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<=n-i;j++){
+                int k=j+i-1;
+                String str=s.substring(j,k+1);
+                if(isPAlindrome(str)){
+                if(str.length()>longest.length()){
+                    longest=str;
+                }
+            }
+            }
+        }
+        return longest;
+    }
+    boolean isPAlindrome(String s){
+        int l=0,r=s.length()-1;
+        while(l<r){
+        if(s.charAt(l++)!=s.charAt(r--)){return false;}
+
+        }
+        return true;
+    }
+
+    
+    public static void main(String[] args){
+        Scanner o=new Scanner(System.in);
+        String inp=o.nextLine();
+        Solution s1=new Solution();
+        System.out.println(s1.longestPalindrome(inp));
+        o.close();
+    }
+
+}
